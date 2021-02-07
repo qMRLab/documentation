@@ -1,0 +1,96 @@
+/* This line is theme specific - it includes the base theme CSS */
+/*@import '../sphinx_rth_theme.css';  /* for Alabaster */
+@import 'theme.css';       /* for the Read the Docs theme */
+
+h2{
+    color:#343131;
+    font-size: 120%;
+}
+
+h1 {
+    font-size: 140%;
+    color:#2980b9;
+}
+
+.danger {
+  background-color: #ffdddd;
+  border-left: 6px solid #f44336;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 1px!important;
+  padding-bottom: 1px!important;
+}
+
+.success {
+  background-color: #ddffdd;
+  border-left: 6px solid #4CAF50;
+  padding-top: 1px!important;
+  padding-bottom: 1px!important;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.info {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 1px!important;
+  padding-bottom: 1px!important;
+}
+
+
+.warning {
+  background-color: #ffffcc;
+  border-left: 6px solid #ffeb3b;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 1px!important;
+  padding-bottom: 1px!important;
+}
+
+.content p { padding:0px; margin:0px 0px 10px!important; }
+
+.content pre.codeinput {
+  padding: 12px;
+  border: 1px solid #d3d3d3;
+  background: #eeffcc!important;
+  overflow-x: auto!important;
+}
+
+.content pre.language-matlab {
+  padding: 12px;
+  border: 1px solid #d3d3d3;
+  font-size: 13px!important;
+  background: #eeffcc!important;
+  overflow-x: auto!important;
+}
+
+/* Github's MD <code> */
+.content tt {
+  font-size: 0.85em!important;
+  background-color:#1b1f230d!important;
+  padding: .1em .2em!important;
+  margin: 0!important;
+  border-radius: 6px!important;
+}
+
+.content pre, code {
+  font-size: 13px!important;
+}
+
+.content img {
+  padding: 0px;
+  margin: 0px 0px 20px;
+  border: none;
+  height: 350px;
+}
+
+.content img:hover {
+  padding: 0px;
+  margin: 0px 0px 20px;
+  height: 90%;
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
