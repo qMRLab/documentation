@@ -49,7 +49,7 @@ vfa_t1: Compute a T1 map using Variable Flip Angle
        background-color: rgba(0,0,0,.5);
        -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
       }
-   </style><div class="content"><h2 >Contents</h2><div ><ul ><li ><a href="#2">1. Print <tt >vfa_t1</tt> information</a></li><li ><a href="#3">2. Setting model parameters</a></li><li ><a href="#4">2.a. Create <tt >vfa_t1</tt> object</a></li><li ><a href="#5">2.b. Modify the options</a></li><li ><a href="#7">3. Fit MRI data</a></li><li ><a href="#8">3.a. Load input data</a></li><li ><a href="#10">3.b. Execute fitting process</a></li><li ><a href="#13">3.c. Display <tt >FitResults</tt></a></li><li ><a href="#14">3.d. Saving fit results</a></li><li ><a href="#16">4. Simulations</a></li><li ><a href="#17">4.a. <tt >Single Voxel Curve</tt></a></li><li ><a href="#18">4.b. <tt >Sensitivity Analysis</tt></a></li><li ><a href="#19">5. Notes</a></li><li ><a href="#20">5.1. Notes specific to <tt >vfa_t1</tt></a></li><li ><a href="#21">5.2. Generic notes</a></li><li ><a href="#22">6. Citations</a></li></ul></div><pre class="codeinput"><span class="comment">% This m-file has been automatically generated using qMRgenBatch(vfa_t1)</span>
+   </style><div class="content"><h2 >Contents</h2><div ><ul ><li ><a href="#2">1. Print <tt >vfa_t1</tt> information</a></li><li ><a href="#3">2. Setting model parameters</a></li><li ><a href="#4">2.a. Create <tt >vfa_t1</tt> object</a></li><li ><a href="#5">2.b. Modify the options</a></li><li ><a href="#7">3. Fit MRI data</a></li><li ><a href="#8">3.a. Load input data</a></li><li ><a href="#10">3.b. Execute fitting process</a></li><li ><a href="#13">3.c. Display <tt >FitResults</tt></a></li><li ><a href="#14">3.d. Saving fit results</a></li><li ><a href="#16">4. Simulations</a></li><li ><a href="#17">4.a. <tt >Single Voxel Curve</tt></a></li><li ><a href="#18">4.b. <tt >Sensitivity Analysis</tt></a></li><li ><a href="#19">5. Notes</a></li><li ><a href="#20">5.a. Notes specific to <tt >vfa_t1</tt></a></li><li ><a href="#21">5.b. Generic notes</a></li><li ><a href="#22">5.b.1. Batch friendly <tt >option</tt> and <tt >protocol</tt> conventions</a></li><li ><a href="#26">5.b.2 Parallelization:</a></li><li ><a href="#28">6. Citations</a></li></ul></div><pre class="codeinput"><span class="comment">% This m-file has been automatically generated using qMRgenBatch(vfa_t1)</span>
    <span class="comment">% for publishing documentation.</span>
    <span class="comment">% Command Line Interface (CLI) is well-suited for automatization</span>
    <span class="comment">% purposes and Octave.</span>
@@ -93,7 +93,7 @@ vfa_t1: Compute a T1 map using Variable Flip Angle
        FitResults = FitData(data,Model); %fit data
        FitResultsSave_mat(FitResults);
     
-       For more examples: a href="matlab: qMRusage(vfa_t1);"qMRusage(vfa_t1)/a
+       For more examples: <a href="matlab: qMRusage(vfa_t1);">qMRusage(vfa_t1)</a>
     
     
      Author: Ian Gagnon, 2017
@@ -117,14 +117,14 @@ vfa_t1: Compute a T1 map using Variable Flip Angle
           Models_Functions/vfa_t1
    
    </pre><h2 id="3">2. Setting model parameters</h2><h2 id="4">2.a. Create <tt >vfa_t1</tt> object</h2><pre class="codeinput">Model = vfa_t1;
-   </pre><h2 id="5">2.b. Modify the options</h2><p >This section will pop-up the <tt >options</tt> GUI for demonstration purposes.</p><p ><i >You need to close this window to proceed.</i></p><div ><ul ><li >If you are using Octave, or would like to serialize your operations without GUI involvement, you can assign method options directly in CLI.</li></ul></div><p >
+   </pre><h2 id="5">2.b. Modify the options</h2><p >This section will pop-up the <tt >options GUI</tt> for demonstration purposes.</p><p ><i >You need to close this window to proceed.</i></p><div ><ul ><li >If you are using Octave, or would like to serialize your operations without <tt >GUI</tt> involvement, you can assign method options directly in CLI.</li></ul></div><p >
    <div class="info">
-   <p style="margin:0px!important;"><strong ><i class="fa fa-info-circle" style="color:navy;margin-left:5px;"></i></strong> See the <a href="#17">generic notes</a> section below for further details. </p>
+   <p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:navy;margin-left:5px;"></i></strong> See the <a href="#21">generic notes</a> section below for further details. </p>
    </div>
    </p><pre class="codeinput">Model = Custom_OptionsGUI(Model); <span class="comment">% You need to close GUI to move on.</span>
-   </pre><img src="_static/vfa_t1_batch_01.png" vspace="5" hspace="5" alt=""> <h2 id="7">3. Fit MRI data</h2><h2 id="8">3.a. Load input data</h2><p >This section shows how you can load data into a(n) <tt >vfa_t1</tt> object.</p><div ><ul ><li >At the CLI level, qMRLab accepts structs containing (<tt >double</tt>) data in the fields named in accordance with a qMRLab model.</li></ul></div><p >
+   </pre><img vspace="5" hspace="5" src="_static/vfa_t1_batch_01.png" alt=""> <h2 id="7">3. Fit MRI data</h2><h2 id="8">3.a. Load input data</h2><p >This section shows how you can load data into a(n) <tt >vfa_t1</tt> object.</p><div ><ul ><li >At the CLI level, qMRLab accepts structs containing (<tt >double</tt>) data in the fields named in accordance with a qMRLab model.</li></ul></div><p >
    <div class="info">
-   <p style="margin:0px!important;"><strong ><i class="fa fa-info-circle" style="color:navy;margin-left:5px;"></i></strong> See the <a href="#17">generic notes</a> section below for BIDS compatible wrappers and scalable qMRLab workflows. </p>
+   <p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:navy;margin-left:5px;"></i></strong> See the <a href="#21">generic notes</a> section below for BIDS compatible wrappers and scalable qMRLab workflows. </p>
    </div>
    </p><pre class="codeinput"><span class="comment">%          |- vfa_t1 object needs 3 data input(s) to be assigned:</span>
    <span class="comment">%          |-   VFAData</span>
@@ -140,7 +140,7 @@ vfa_t1: Compute a T1 map using Variable Flip Angle
    data.Mask=double(load_nii_data(<span class="string">'vfa_t1_data/Mask.nii.gz'</span>));
    </pre><h2 id="10">3.b. Execute fitting process</h2><p >This section will fit the loaded data.</p><p >
    <div class="info">
-   <p style="margin:0px!important;"><strong ><i class="fa fa-info-circle" style="color:navy;margin-left:5px;"></i></strong> Visit the <a href="#17">generic notes</a> section below for instructions to accelerate fitting by parallelization using <code >ParFitData</code>. </p>
+   <p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:navy;margin-left:5px;"></i></strong> Visit the <a href="#21">generic notes</a> section below for instructions to accelerate fitting by parallelization using <code >ParFitData</code>. </p>
    </div>
    </p><pre class="language-matlab">FitResults = FitData(data,Model,0);
    </pre><h2 id="13">3.c. Display <tt >FitResults</tt></h2><p >You can display the current outputs by:</p><pre class="language-matlab">qMRshowOutput(FitResults,data,Model);
@@ -148,25 +148,25 @@ vfa_t1: Compute a T1 map using Variable Flip Angle
    FitResults_old = load(<span class="string">'FitResults/FitResults.mat'</span>);
    qMRshowOutput(FitResults_old,data,Model);
    </pre><pre class="codeoutput">          M0: 2.5567e+03
-          Model: [11 struct]
-       Protocol: [11 struct]
+          Model: [1×1 struct]
+       Protocol: [1×1 struct]
              T1: 1.3447
            Time: 0.0087
         Version: [2 0 8]
-       computed: [128128 double]
+       computed: [128×128 double]
          fields: {'T1'  'M0'}
    
-   </pre><img src="_static/vfa_t1_batch_02.png" vspace="5" hspace="5" alt=""> <img src="_static/vfa_t1_batch_03.png" vspace="5" hspace="5" alt=""> <h2 id="14">3.d. Saving fit results</h2><p >Outputs can be saved as <tt >*.nii.(gz)</tt> if <tt >NIfTI</tt> inputs are available:</p><pre class="language-matlab"><span class="comment">% Generic function call to save nifti outputs</span>
+   </pre><img vspace="5" hspace="5" src="_static/vfa_t1_batch_02.png" alt=""> <img vspace="5" hspace="5" src="_static/vfa_t1_batch_03.png" alt=""> <h2 id="14">3.d. Saving fit results</h2><p >Outputs can be saved as <tt >*.nii.(gz)</tt> if <tt >NIfTI</tt> inputs are available:</p><pre class="language-matlab"><span class="comment">% Generic function call to save nifti outputs</span>
    FitResultsSave_nii(FitResults, <span class="string">'reference/nifti/file.nii.(gz)'</span>);
    </pre><p >If not, <tt >FitResults.mat</tt> file can be saved. This file contains all the outputs as workspace variables:</p><pre class="language-matlab"><span class="comment">% Generic function call to save FitResults.mat</span>
    FitResultsSave_mat(FitResults);
    </pre><p >
    <div class="info">
-   <p style="margin:0px!important;"><strong ><i class="fa fa-info-circle" style="color:navy;margin-left:5px;"></i></strong> <code >FitResults.mat</code> files can be loaded to qMRLab GUI for <a href="l#data-viewer" target="_blank">visualization and ROI analyses</a>. </p>
+   <p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:navy;margin-left:5px;"></i></strong> <code >FitResults.mat</code> files can be loaded to qMRLab <code >GUI</code> for <a href="l#data-viewer" target="_blank">visualization and ROI analyses</a>. </p>
    </div>
    </p><p >Model object (<tt >vfa_t1_Demo.qmrlab.mat</tt>) stores all the options and protocol.</p><p >
    <div class="info">
-   <p style="margin:0px!important;"><strong ><i class="fa fa-info-circle" style="color:navy;margin-left:5px;"></i></strong> <code >*.qmrlab.mat</code> files can be easily shared with collaborators to allow them fit their own data or run simulations using identical <code >option</code> and <code >protocol</code> configurations. </p>
+   <p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:navy;margin-left:5px;"></i></strong> <code >*.qmrlab.mat</code> files can be easily shared with collaborators to allow them fit their own data or run simulations using identical <code >option</code> and <code >protocol</code> configurations. </p>
    </div>
    </p><p >The section below will be dynamically generated in accordance with the example data format (<tt >mat</tt> or <tt >nii</tt>). You can substitute <tt >FitResults_old</tt> with <tt >FitResults</tt> if you executed the fitting using example dataset for this model in section <b >3.b.</b>.</p><pre class="codeinput">FitResultsSave_nii(FitResults_old, <span class="string">'vfa_t1_data/VFAData.nii.gz'</span>);
    Model.saveObj(<span class="string">'vfa_t1_Demo.qmrlab.mat'</span>);
@@ -179,17 +179,43 @@ vfa_t1: Compute a T1 map using Variable Flip Angle
    <div class="danger" style="text-align:justify;">
    <p style="margin:0px!important;"><strong ><i class="fa fa-info-circle" style="color:red;margin-left:5px;"></i></strong> Not available for the current model.</p>
    </div>
-   </p><h2 id="19">5. Notes</h2><h2 id="20">5.1. Notes specific to <tt >vfa_t1</tt></h2><p >
+   </p><h2 id="19">5. Notes</h2><h2 id="20">5.a. Notes specific to <tt >vfa_t1</tt></h2><p >
    <div class="warning" style="text-align:justify;">
    <p style="margin:0px!important;"><strong ><i class="fa fa-info-circle" style="color:black;margin-left:5px;"></i></strong> Not provided.</p>
    </div>
-   </p><h2 id="21">5.2. Generic notes</h2><p >To be edited</p><h2 id="22">6. Citations</h2><p ><b >qMRLab JOSS article</b></p><p >
+   </p><h2 id="21">5.b. Generic notes</h2><h2 id="22">5.b.1. Batch friendly <tt >option</tt> and <tt >protocol</tt> conventions</h2><p >If you would like to load a desired set of <tt >options</tt>/|protocols| programatically, you can use <tt >*.qmrlab.mat</tt> files. To save a configuration from the <tt >protocol</tt> panel of <tt >vfa_t1</tt>, first open the respective panel by running the following command in your MATLAB command window (MATLAB only):</p><pre class="language-matlab">Custom_OptionsGUI(vfa_t1);
+   </pre><p >In this panel, you can arrange available <tt >options</tt> and <tt >protocols</tt> according to your needs, then click the <tt >save</tt> button to save <tt >my_vfa_t1.qmrlab.mat</tt> file. This file can be later loaded into a <tt >vfa_t1</tt> object in batch by:</p><pre class="language-matlab">Model = vfa_t1;
+   Model = Model.loadObj(<span class="string">'my_vfa_t1.qmrlab.mat'</span>);
+   </pre><p >
+   <div class="info">
+   <p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:navy;margin-left:5px;"></i></strong> <code >Model.loadObj('my_vfa_t1.qmrlab.mat')</code> call won't update the fields in the <code >Model</code> object, unless the output is assigned to the object as shown above. This compromise on convenience is to retain Octave CLI compatibility. </p>
+   </div>
+   </p><p ><b >If you don't have MATLAB, hence cannot access the <tt >GUI</tt>, two alternatives are available to populate <tt >options</tt>:</b></p><div ><ol ><li >Use <tt >qmrlab/mcrgui:latest</tt> Docker image to access <tt >GUI</tt>. The instructions are available <a href="https://hub.docker.com/r/qmrlab/mcrgui">here</a>.</li><li >Set <tt >options</tt> and <tt >protocols</tt> in <tt >CLI</tt>:</li></ol></div><div ><ul ><li >List available option fields using tab completion in Octave's command prompt (or window)</li></ul></div><pre class="language-matlab">Model = vfa_t1;
+   Model.option. <span class="comment">% click the tab button on your keyboard and list the available fields.</span>
+   </pre><div ><ul ><li >Assign the desired field. <b >For example</b>, for a <tt >mono_t2</tt> object:</li></ul></div><pre class="language-matlab">Model = mono_t2;
+   Model.options.DropFirstEcho = true;
+   Model.options.OffsetTerm = false;
+   </pre><p >
+   <div class="info">
+   <p style="margin:0px!important;"><strong ><i class="fa fa-info-circle" style="color:navy;margin-left:5px;"></i></strong> Some option fields may be mutually exclusive or interdependent. Such cases are handled  by the <code >GUI</code> options panel; however, not exposed to the <code >CLI</code>. Therefore, manual <code >CLI</code> <code >options</code> assignments may be challenging for some involved methods such as <code >qmt_spgr</code> or <code >qsm_sb</code>. If above options are not working for you and you cannot infer how to set options solely in batch, please feel free to <a href="https://github.com/qmrlab/qmrlab" target="_blank">open an issue in qMRLab</a> and request the protocol file you need. </p>
+   </div>
+   </p><p ><b >Similarly, in CLI, you can inspect and assign the <tt >protocols</tt>:</b></p><pre class="language-matlab">Model = vfa_t1;
+   Model.Prot. <span class="comment">% click the tab button on your keyboard and list the available fields.</span>
+   </pre><p >Each protocol field has two subfields of <tt >Format</tt> and <tt >Mat</tt>. The first one is a <tt >cell</tt> indicating the name of the protocol parameter (such as <tt >EchoTime (ms)</tt>) and the latter one contains the respective values (such as <tt >30 x 1 double</tt> array containing <tt >EchoTimes</tt>).</p><p >
+   <div class="warning">
+   <p style="margin:0px!important;"> The default <code >Mat</code> protocol values are set according to the example datasets served via <a href="https://osf.io/tmdfu" target="_blank">OSF</a>.</p>
+   </div>
+   </p><h2 id="26">5.b.2 Parallelization:</h2><p >
+   <div class="danger">
+   <p style="margin:0px!important;"> The current model does not perform voxelwise fitting. Therefore, parallelization is not enabled.</p>
+   </div>
+   </p><h2 id="28">6. Citations</h2><p ><b >qMRLab JOSS article</b></p><p >
    <div class="success" style="text-align:justify;">
    <p > Karakuzu A., Boudreau M., Duval T.,Boshkovski T., Leppert I.R., Cabana J.F., Gagnon I., Beliveau P., Pike G.B., Cohen-Adad J., Stikov N. (2020), qMRLab: Quantitative MRI analysis, under one umbrella <a href="https://doi.org/10.21105/joss.02343" target="_blank">10.21105/joss.02343</a></p>
    </div>
    </p><p ><b >Reference article for <tt >vfa_t1</tt></b></p><p >
    <div class="success" style="text-align:justify;">
-   <p >|vfa_t1|</p>
+   Fram, E.K., et al. (1987). Rapid calculation of T1 using variable flip angle gradient refocused imaging. Magnetic Resonance in Medicine, 5(3), 201-208. 10.1016/0730-725x(87)90021-x
    </div>
    </p><p >
    <hr >
@@ -198,4 +224,4 @@ vfa_t1: Compute a T1 map using Variable Flip Angle
    <center >| <a href="https://github.com/qmrlab/pulse_sequences" target="_blank">qMRPullseq</a> | <a href="https://github.com/qmrlab/qmrflow" target="_blank">qMRFlow</a> | <a href="https://qmrlab.org/blog.html" target="_blank">Interactive Tutorials</a> | </p></center>
    <center ><p ><a href="https://www.neuro.polymtl.ca/doku.php" target="_blank">NeuroPoly Lab</a>, Montreal, Canada</p></center>
    <hr >
-   </p><p class="footer"><br ><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB R2019b</a><br ></p></div>
+   </p><p class="footer"><br ><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB® R2019b</a><br ></p></div>
