@@ -93,10 +93,7 @@ Diffusion
 
 	dti_batch
 
-.. toctree::
-	:maxdepth: 1
-
-	amico_batch
+* amico:   Accelerated Microstructure Imaging via Convex Optimization
 
 .. toctree::
 	:maxdepth: 1
