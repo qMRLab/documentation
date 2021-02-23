@@ -90,6 +90,6 @@ How to cite?
 
 If you use qMRLab in you work, please cite:
 
-Cabana, J.-F., Gu, Y., Boudreau, M., Levesque, I. R., Atchia, Y., Sled, J. G., Narayanan, S., Arnold, D. L., Pike, G. B., Cohen-Adad, J., Duval, T., Vuong, M.-T. and Stikov, N. (2016), Quantitative magnetization transfer imaging made easy with qMTLab: Software for data simulation, analysis, and visualization. Concepts Magn. Reson.. doi: 10.1002/cmr.a.21357
+Karakuzu, A., Boudreau, M., Duval, T., Boshkovski, T., Leppert, I. R., Cabana, J. F., ... & Stikov, N. (2020). qMRLab: Quantitative MRI analysis, under one umbrella. Journal of Open Source Software, 5(53), 2343. doi: 10.21105/joss.02343
 
 Please also cite the reference for the particular module you are using (specified in each model's page).
