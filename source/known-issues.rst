@@ -18,4 +18,15 @@ start a terminal and run the following::
     sudo find /full/path/to/qMRLab -name \*.mexmaci64 -exec spctl --add {} \;
 
 Please open `a new issue <https://github.com/qMRLab/qMRLab/issues/new/choose>`_ if this
-solution did not work for you. 
+solution did not work for you.
+
+Apple Silicon (M1) compatibility
+-------------------------------------------------------------------------------
+* MATLAB 
+    * According to the official Mathworks announcement, MATLAB is fully compatible with
+    M1 CPU from R2020b onward. On the other hand, we successfully run qMRLab in R2018b
+    (MacBook Pro, 13", Early 2020, M1).
+
+* Octave 
+    * The latest Octave `release 6.2.0 <https://wiki.octave.org/Octave_for_macOS>`_ works 
+    with M1 CPU.
