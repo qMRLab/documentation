@@ -51,7 +51,7 @@ qsm_sb: Fast quantitative susceptibility mapping
 	background-color: rgba(0,0,0,.5);
 	-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 	}
-	</style><div class="content"><h2 >Contents</h2><div ><ul ><li ><a href="#2">1. Print <tt >qsm_sb</tt> information</a></li><li ><a href="#3">2. Setting model parameters</a></li><li ><a href="#4">2.a. Create <tt >qsm_sb</tt> object</a></li><li ><a href="#5">2.b. Set <tt >protocol</tt> and <tt >options</tt></a></li><li ><a href="#8">2.b.1 Set <tt >protocol</tt> <i >the CLI way</i></a></li><li ><a href="#13">2.b.2 Set <tt >protocol</tt> and <tt >options</tt> <i >the GUI way</i></a></li><li ><a href="#17">3. Fit MRI data</a></li><li ><a href="#18">3.a. <b >Load</b> input data</a></li><li ><a href="#20">3.b. Execute fitting process</a></li><li ><a href="#23">3.c. Display <tt >FitResults</tt></a></li><li ><a href="#24">3.d. Save fit results</a></li><li ><a href="#26">3.e. Re-use or share fit configuration files</a></li><li ><a href="#27">4. Simulations</a></li><li ><a href="#28">4.a. <tt >Single Voxel Curve</tt></a></li><li ><a href="#29">4.b. <tt >Sensitivity Analysis</tt></a></li><li ><a href="#30">5. Notes</a></li><li ><a href="#31">5.a. Notes specific to <tt >qsm_sb</tt></a></li><li ><a href="#32">5.b. Generic notes</a></li><li ><a href="#33">5.b.1. Batch friendly <tt >option</tt> and <tt >protocol</tt> conventions</a></li><li ><a href="#37">5.b.2 Parallelization:</a></li><li ><a href="#39">6. Citations</a></li></ul></div><pre class="codeinput"><span class="comment">% This m-file has been automatically generated using qMRgenBatch(qsm_sb)</span>
+	</style><div class="content"><h2 >Contents</h2><div ><ul ><li ><a href="#2">1. Print <tt >qsm_sb</tt> information</a></li><li ><a href="#3">2. Setting model parameters</a></li><li ><a href="#4">2.a. Create <tt >qsm_sb</tt> object</a></li><li ><a href="#5">2.b. Set <tt >protocol</tt> and <tt >options</tt></a></li><li ><a href="#8">2.b.1 Set <tt >protocol</tt> <i >the CLI way</i></a></li><li ><a href="#13">2.b.2 Set <tt >protocol</tt> and <tt >options</tt> <i >the GUI way</i></a></li><li ><a href="#17">3. Fit MRI data</a></li><li ><a href="#18">3.a. <b >Load</b> input data</a></li><li ><a href="#20">3.b. Execute fitting process</a></li><li ><a href="#23">3.c. Display <tt >FitResults</tt></a></li><li ><a href="#24">3.d. Save fit results</a></li><li ><a href="#26">3.e. Re-use or share fit configuration files</a></li><li ><a href="#27">4. Simulations</a></li><li ><a href="#28">4.a. <tt >Single Voxel Curve</tt></a></li><li ><a href="#30">4.b. <tt >Sensitivity Analysis</tt></a></li><li ><a href="#32">5. Notes</a></li><li ><a href="#33">5.a. Notes specific to <tt >qsm_sb</tt></a></li><li ><a href="#34">5.a.1 BIDS</a></li><li ><a href="#36">5.a.2 Note-1</a></li><li ><a href="#37">5.a.3 Note-2</a></li><li ><a href="#38">5.a.4 Note-3</a></li><li ><a href="#39">5.b. Generic notes</a></li><li ><a href="#40">5.b.1. Batch friendly <tt >option</tt> and <tt >protocol</tt> conventions</a></li><li ><a href="#44">5.b.2 Parallelization:</a></li><li ><a href="#46">6. Citations</a></li></ul></div><pre class="codeinput"><span class="comment">% This m-file has been automatically generated using qMRgenBatch(qsm_sb)</span>
 	<span class="comment">% for publishing documentation.</span>
 	<span class="comment">% Command Line Interface (CLI) is well-suited for automatization</span>
 	<span class="comment">% purposes and Octave.</span>
@@ -71,21 +71,31 @@ qsm_sb: Fast quantitative susceptibility mapping
 	(1) Case - Split-Bregman:
 	i)  W/ magnitude weighting:  chiSBM, chiL2M, chiL2, unwrappedPhase, maskOut
 	ii) W/O magnitude weighting: chiSM, chiL2, unwrappedPhase, maskOut
+	
 	(2) Case - L2 Regularization:
 	i)  W/ magnitude weighting:  chiL2M, chiL2, unwrappedPhase, maskOut
 	ii) W/O magnitude weighting: chiL2, unwrappedPhase, maskOut
+	
 	(3) Case - No Regularization: 
 	i) Magnitude weighting is not enabled: nfm, unwrappedPhase, maskOut
 	Inputs:
-	PhaseGRE      3D GRE acquisition. <<Wrapped phase image>>
-	(MagnGRE)     3D GRE acquisition. <<Magnitude part of the image>> (OPTIONAL)
-	Mask          Brain extraction mask.
+	PhaseGRE        3D GRE acquisition. |Wrapped phase image|
+	(MagnGRE)       3D GRE acquisition. |Magnitude part of the image| (OPTIONAL)
+	Mask            Brain extraction mask.
 	
 	Outputs:
-	chiSBM          Susceptibility map created using Split-Bregman method with magnitude weighting 
-	chiSB           Susceptibility map created using Split-Bregman method without magnitude weighting.
-	chiL2M          Susceptibility map created using L2 regularization with magnitude weighting
-	chiL2           Susceptibility map created using L2 regularization without magnitude weighting
+	chiSBM          Susceptibility map created using Split-Bregman method with 
+	magnitude weighting
+	
+	chiSB           Susceptibility map created using Split-Bregman method without
+	magnitude weighting.
+	
+	chiL2M          Susceptibility map created using L2 regularization with 
+	magnitude weighting
+	
+	chiL2           Susceptibility map created using L2 regularization without 
+	magnitude weighting
+	
 	nfm             Susceptibility map created without regularization
 	unwrappedPhase  Unwrapped phase image using Laplacian-based method
 	maskOut         Binary mask (maskSharp, gradientMask or same as the input)
@@ -94,23 +104,27 @@ qsm_sb: Fast quantitative susceptibility mapping
 	Derivative direction               Direction of the derivation 
 	- forward 
 	- backward
+	
 	SHARP Filtering                    Sophisticated harmonic artifact reduction for phase data
 	- State: true/false
 	- Mode: once/iterative 
 	- Padding Size: [1X3 array]
 	- Magnitude Weighting: on/off
+	
 	L1-Regularization                  Apply L1-regularization 
 	- State: true/false
 	- Reoptimize parameters:
 	true/false
 	- Lambda-L1: [double]
 	- L1-Range:  [1X2 array]
+	
 	L2-Regularization                  Apply L2-regularization 
 	- State: true/false
 	- Reoptimize parameters:
 	true/false
 	- Lambda-L2: [double]
 	- L2-Range:  [1X2 array]
+	
 	Split-Bregman                       Apply Split-Bregman method 
 	- State: true/false
 	- Reoptimize parameters:
@@ -127,7 +141,7 @@ qsm_sb: Fast quantitative susceptibility mapping
 	Gagnon I., Beliveau P., Pike G.B., Cohen-Adad J., Stikov N. (2020), qMRLab: 
 	Quantitative MRI analysis, under one umbrella doi: 10.21105/joss.02343
 	
-	Documentation for qsm_sb
+	Reference page in Doc Center
 	doc qsm_sb
 	
 	
@@ -151,16 +165,16 @@ qsm_sb: Fast quantitative susceptibility mapping
 	Model.Prot.Magnetization.Mat = [ FieldStrength  CentralFreq ];
 	</pre><p >
 	<div class="warning">
-	<p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:black;margin-left:5px;"></i></strong> See the <a href="#21">generic notes</a> section below for further information. </p>
+	<p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:black;margin-left:5px;"></i></strong> See the <a href="#36">generic notes</a> section below for further information. </p>
 	</div>
-	</p><h2 id="13">2.b.2 Set <tt >protocol</tt> and <tt >options</tt> <i >the GUI way</i></h2><p >The following command opens a panel to set <tt >protocol</tt> and <tt >options</tt> (if <tt >GUI</tt> is available to the user):</p><pre class="codeinput">Model = Custom_OptionsGUI(Model);
-	</pre><img vspace="5" hspace="5" src="_static/qsm_sb_batch_01.png" alt=""> <p ><i >You need to close this window for the remaining of the script to proceed.</i></p><p >
+	</p><h2 id="13">2.b.2 Set <tt >protocol</tt> and <tt >options</tt> <i >the GUI way</i></h2><p >The following command opens a panel to set <tt >protocol</tt> and <tt >options</tt> (if <tt >GUI</tt> is available to the user):</p><pre class="language-matlab">Model = Custom_OptionsGUI(Model);
+	</pre><p ><img vspace="5" hspace="5" src="https://github.com/qMRLab/doc_images/blob/main/usr/protPanels/qsm_sb.png?raw=true" alt=""> </p><p ><i >If available, you need to close this panel for the remaining of the script to proceed.</i></p><p >
 	<div class="warning">
-	<p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:black;margin-left:5px;"></i></strong> Using this panel, you can save qMRLab protocol files that can be used in both interfaces. See the <a href="#21">generic notes</a> section below for details. </p>
+	<p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:black;margin-left:5px;"></i></strong> Using this panel, you can save qMRLab protocol files that can be used in both interfaces. See the <a href="#36">generic notes</a> section below for details. </p>
 	</div>
 	</p><h2 id="17">3. Fit MRI data</h2><h2 id="18">3.a. <b >Load</b> input data</h2><p >This section shows how you can load data into a(n) <tt >qsm_sb</tt> object.</p><div ><ul ><li >At the CLI level, qMRLab accepts structs containing (<tt >double</tt>) data in the fields named in accordance with a qMRLab model.</li></ul></div><p >
 	<div class="info">
-	<p style="margin:0px!important;"><strong > <i class="fa fa-umbrella" style="color:navy;margin-left:5px;"></i></strong> See the <a href="#21">generic notes</a> section below for BIDS compatible wrappers and scalable <br >        qMRLab workflows. </p>
+	<p style="margin:0px!important;"><strong > <i class="fa fa-umbrella" style="color:navy;margin-left:5px;"></i></strong> See the <a href="#36">generic notes</a> section below for BIDS compatible wrappers and scalable <br >        qMRLab workflows. </p>
 	</div>
 	</p><pre class="codeinput"><span class="comment">%          |- qsm_sb object needs 3 data input(s) to be assigned:</span>
 	<span class="comment">%          |-   PhaseGRE</span>
@@ -181,13 +195,13 @@ qsm_sb: Fast quantitative susceptibility mapping
 	</pre><h2 id="20">3.b. Execute fitting process</h2><p >This section will fit the loaded data.</p><pre class="language-matlab">FitResults = FitData(data,Model,0);
 	</pre><p >
 	<div class="danger">
-	<p style="margin:0px!important;"><strong ><i class="fa fa-umbrella" style="color:red;margin-left:5px;"></i></strong> Visit the <a href="#21">generic notes</a> section below for instructions to accelerate fitting by <br >       parallelization using <code >ParFitData</code>. </p>
+	<p style="margin:0px!important;"><strong ><i class="fa fa-umbrella" style="color:red;margin-left:5px;"></i></strong> Visit the <a href="#36">generic notes</a> section below for instructions to accelerate fitting by <br >       parallelization using <code >ParFitData</code>. </p>
 	</div>
 	</p><h2 id="23">3.c. Display <tt >FitResults</tt></h2><p >You can display the current outputs by:</p><pre class="language-matlab">qMRshowOutput(FitResults,data,Model);
 	</pre><p ><i >A representative fit curve will be plotted if available.</i></p><p >To render images in this page, we will load the fit results that had been saved before. You can skip the following code block;</p><pre class="codeinput"><span class="comment">% Load FitResults that comes with the example dataset.</span>
 	FitResults_old = load(<span class="string">'FitResults/FitResults.mat'</span>);
 	qMRshowOutput(FitResults_old,data,Model);
-	</pre><img vspace="5" hspace="5" src="_static/qsm_sb_batch_02.png" alt=""> <h2 id="24">3.d. Save fit results</h2><p >Outputs can be saved as <tt >*.nii.(gz)</tt> if <tt >NIfTI</tt> inputs are available:</p><pre class="language-matlab"><span class="comment">% Generic function call to save nifti outputs</span>
+	</pre><img vspace="5" hspace="5" src="_static/qsm_sb_batch_01.png" alt=""> <h2 id="24">3.d. Save fit results</h2><p >Outputs can be saved as <tt >*.nii.(gz)</tt> if <tt >NIfTI</tt> inputs are available:</p><pre class="language-matlab"><span class="comment">% Generic function call to save nifti outputs</span>
 	FitResultsSave_nii(FitResults, <span class="string">'reference/nifti/file.nii.(gz)'</span>);
 	</pre><p >If not, <tt >FitResults.mat</tt> file can be saved. This file contains all the outputs as workspace variables:</p><pre class="language-matlab"><span class="comment">% Generic function call to save FitResults.mat</span>
 	FitResultsSave_mat(FitResults);
@@ -196,22 +210,58 @@ qsm_sb: Fast quantitative susceptibility mapping
 	<p style="margin:0px!important;"><strong > <i class="fa fa-clone" style="color:navy;margin-left:5px;"></i></strong> <code >FitResults.mat</code> files can be loaded to qMRLab <code >GUI</code> for <a href="l#data-viewer" target="_blank">visualization and ROI <br >        analyses</a>. </p>
 	</div>
 	</p><p >The section below will be dynamically generated in accordance with the example data format (<tt >mat</tt> or <tt >nii</tt>). You can substitute <tt >FitResults_old</tt> with <tt >FitResults</tt> if you executed the fitting using example dataset for this model in section <b >3.b.</b>.</p><pre class="codeinput">FitResultsSave_mat(FitResults_old);
-	</pre><pre class="codeoutput">Warning: Directory already exists. 
 	</pre><h2 id="26">3.e. Re-use or share fit configuration files</h2><p >qMRLab's fit configuration files (<tt >qsm_sb_Demo.qmrlab.mat</tt>) store all the <tt >options</tt> and <tt >protocol</tt> in relation to the used model and the release version.</p><p >
 	<div class="info">
 	<p style="margin:0px!important;"><strong > <i class="fa fa-retweet" style="color:navy;margin-left:5px;"></i></strong> <code >*.qmrlab.mat</code> files can be easily shared with collaborators to allow them fit their own <br >       data or run simulations using identical <code >option</code> and <code >protocol</code> configurations. </p>
 	</div>
 	</p><pre class="codeinput">Model.saveObj(<span class="string">'my_qsm_sb_config.qmrlab.mat'</span>);
-	</pre><h2 id="27">4. Simulations</h2><h2 id="28">4.a. <tt >Single Voxel Curve</tt></h2><p >Simulates single voxel curves:</p><div ><ol ><li >Analytically generate synthetic MRI data</li><li >Add <i >rician</i> noise</li><li ><tt >Fit</tt> and <tt >plot</tt> the respective curve</li></ol></div><p >
+	</pre><h2 id="27">4. Simulations</h2><h2 id="28">4.a. <tt >Single Voxel Curve</tt></h2><p >
+	<details >
+	<summary >Simulates single voxel curves</summary>
+	<ol >
+	<li >Analytically generate synthetic MRI data</li>
+	<li >Add <i >rician</i> noise</li>
+	<li ><tt >Fit</tt> and <tt >plot</tt> the respective curve</li>
+	</ol>
+	</details>
+	</p><p >
 	<div class="danger" style="text-align:justify;">
 	<p style="margin:0px!important;"><strong ><i class="fa fa-info-circle" style="color:red;margin-left:5px;"></i></strong> Not available for the current model.</p>
 	</div>
-	</p><h2 id="29">4.b. <tt >Sensitivity Analysis</tt></h2><p >Simulates sensitivity to fitted parameters:</p><div ><ol ><li >Iterate fitting parameters from lower (<tt >lb</tt>) to upper (<tt >ub</tt>) bound</li><li >Run <tt >Sim_Single_Voxel_Curve</tt> for <tt >Nofruns</tt> times</li><li >Compute the <tt >mean</tt> and <tt >std</tt> across runs</li></ol></div><p >
+	</p><h2 id="30">4.b. <tt >Sensitivity Analysis</tt></h2><p >
+	<details >
+	<summary >Simulates sensitivity to fitted parameters</summary>
+	<ol >
+	<li >Iterate fitting parameters from lower (<tt >lb</tt>) to upper (<tt >ub</tt>) bound</li>
+	<li >Run <tt >Sim_Single_Voxel_Curve</tt> for <tt >Nofruns</tt> times</li>
+	<li >Compute the <tt >mean</tt> and <tt >std</tt> across runs</li>
+	</ol>
+	</details>
+	</p><p >
 	<div class="danger" style="text-align:justify;">
 	<p style="margin:0px!important;"><strong ><i class="fa fa-info-circle" style="color:red;margin-left:5px;"></i></strong> Not available for the current model.</p>
 	</div>
-	</p><h2 id="30">5. Notes</h2><h2 id="31">5.a. Notes specific to <tt >qsm_sb</tt></h2><p ><b >Note 1:</b></p><p >To make documentation generation and our CI tests faster for this model, we used a subportion of the data <tt >40x40x40</tt> in our testing environment.</p><p >Therefore , the dimensions displayed in the section <i >3.a</i> of this automatically generated documentation is different than those provided to the user.</p><pre class="language-matlab">qMRgenBatch(qsm_sb)
-	</pre><p >When the command above is called from MATLAB/Octave by the user, the complete high resolution (<tt >0.6mm iso</tt> resolution) dataset (<tt >384x336x224</tt> dimensions) will be downloaded.</p><p ><b >Note 2:</b></p><div ><ul ><li ><tt >L1 regularization</tt> is performed as a sub-process to <tt >Split-Bregman</tt> regularization. Therefore, L1 (lambda) reoptimization panel is enabled only when <tt >Split-Bregman</tt> is activated. The <tt >Chimap</tt> (inn ppm) calculated upon this selection are <tt >chiSB</tt> and <tt >chiL2</tt>.</li><li >Unlike <tt >L1</tt>, <tt >L2 regularization</tt> can be run independently. The <tt >Chimap</tt> (in ppm) calculated upon this selection is <tt >chiL2</tt>.</li><li >When the <tt >magnitude weighting</tt> optio`n is enbled, associated the output maps attains an <tt >M</tt> suffix: <tt >chiL2M</tt> or <tt >chiSBM</tt>.</li><li >A susceptibility map can be also generated without regularization. For this selection, the output <tt >Chimap</tt> is <tt >nfm</tt>, which is displayed as an example in this page.</li><li >Unwrapped phase images are provided in the output: <tt >unwrappedPhase</tt>.</li></ul></div><h2 id="32">5.b. Generic notes</h2><h2 id="33">5.b.1. Batch friendly <tt >option</tt> and <tt >protocol</tt> conventions</h2><p >If you would like to load a desired set of <tt >options</tt>/|protocols| programatically, you can use <tt >*.qmrlab.mat</tt> files. To save a configuration from the <tt >protocol</tt> panel of <tt >qsm_sb</tt>, first open the respective panel by running the following command in your MATLAB command window (MATLAB only):</p><pre class="language-matlab">Custom_OptionsGUI(qsm_sb);
+	</p><h2 id="32">5. Notes</h2><h2 id="33">5.a. Notes specific to <tt >qsm_sb</tt></h2><h2 id="34">5.a.1 BIDS</h2><p >
+	<img src="https://github.com/qMRLab/doc_images/blob/main/usr/BIDS_Logo.png?raw=true" style="height:100px!important;">
+	</p><pre class="language-matlab">|== sub-01/
+	|~~~~~~ anat/
+	|---------- sub-01_T1w.json
+	|---------- sub-01_part-mag_T1w.nii.gz
+	|---------- sub-01_part-phase_T1w.nii.gz
+	|
+	|== derivatives/
+	|~~~~~~ qMRLab/
+	|---------- dataset_description.json
+	|~~~~~~~~~~ sub-01/anat/
+	|-------------- sub-01_Chimap.nii.gz
+	|-------------- sub-01_Chimap.json
+	|~~~~~~ pipeline/
+	|---------- dataset_description.json
+	|~~~~~~~~~~ sub-01/anat/
+	|-------------- sub-01_label-brain_mask.nii.gz
+	|-------------- sub-01_label-brain_mask.json
+	</pre><p >For further information, please visit <a href="https://bids-specification.readthedocs.io/en/stable/99-appendices/11-qmri.html">BIDS qMRI Appendix</a>.</p><h2 id="36">5.a.2 Note-1</h2><p >To make documentation generation and our CI tests faster for this model, we used a subportion of the data <tt >40x40x40</tt> in our testing environment.</p><p >Therefore , the dimensions displayed in the section <i >3.a</i> of this automatically generated documentation is different than those provided to the user.</p><pre class="language-matlab">qMRgenBatch(qsm_sb)
+	</pre><p >When the command above is called from MATLAB/Octave by the user, the complete high resolution (<tt >0.6mm iso</tt> resolution) dataset (<tt >384x336x224</tt> dimensions) will be downloaded.</p><h2 id="37">5.a.3 Note-2</h2><div ><ul ><li ><tt >L1 regularization</tt> is performed as a sub-process to <tt >Split-Bregman</tt> regularization. Therefore, L1 (lambda) reoptimization panel is enabled only when <tt >Split-Bregman</tt> is activated. The <tt >Chimap</tt> (inn ppm) calculated upon this selection are <tt >chiSB</tt> and <tt >chiL2</tt>.</li><li >Unlike <tt >L1</tt>, <tt >L2 regularization</tt> can be run independently. The <tt >Chimap</tt> (in ppm) calculated upon this selection is <tt >chiL2</tt>.</li><li >When the <tt >magnitude weighting</tt> optio`n is enbled, associated the output maps attains an <tt >M</tt> suffix: <tt >chiL2M</tt> or <tt >chiSBM</tt>.</li><li >A susceptibility map can be also generated without regularization. For this selection, the output <tt >Chimap</tt> is <tt >nfm</tt>, which is displayed as an example in this page.</li><li >Unwrapped phase images are provided in the output: <tt >unwrappedPhase</tt>.</li></ul></div><h2 id="38">5.a.4 Note-3</h2><p >Full dataset and the original code are available <a href="https://www.dropbox.com/s/expg1i1emrwdegn/Fast_QSM_Magnitude_Toolbox.zip?dl=0">here.</a></p><h2 id="39">5.b. Generic notes</h2><h2 id="40">5.b.1. Batch friendly <tt >option</tt> and <tt >protocol</tt> conventions</h2><p >If you would like to load a desired set of <tt >options</tt> / <tt >protocols</tt> programatically, you can use <tt >*.qmrlab.mat</tt> files. To save a configuration from the <tt >protocol</tt> panel of <tt >qsm_sb</tt>, first open the respective panel by running the following command in your MATLAB command window (MATLAB only):</p><pre class="language-matlab">Custom_OptionsGUI(qsm_sb);
 	</pre><p >In this panel, you can arrange available <tt >options</tt> and <tt >protocols</tt> according to your needs, then click the <tt >save</tt> button to save <tt >my_qsm_sb.qmrlab.mat</tt> file. This file can be later loaded into a <tt >qsm_sb</tt> object in batch by:</p><pre class="language-matlab">Model = qsm_sb;
 	Model = Model.loadObj(<span class="string">'my_qsm_sb.qmrlab.mat'</span>);
 	</pre><p >
@@ -233,11 +283,11 @@ qsm_sb: Fast quantitative susceptibility mapping
 	<div class="warning">
 	<p style="margin:0px!important;"> The default <code >Mat</code> protocol values are set according to the example datasets served via <a href="https://osf.io/tmdfu" target="_blank">OSF</a>.</p>
 	</div>
-	</p><h2 id="37">5.b.2 Parallelization:</h2><p >
+	</p><h2 id="44">5.b.2 Parallelization:</h2><p >
 	<div class="danger">
 	<p style="margin:0px!important;"> The current model does not perform voxelwise fitting. Therefore, parallelization is not enabled.</p>
 	</div>
-	</p><h2 id="39">6. Citations</h2><p ><b >qMRLab JOSS article</b></p><p >
+	</p><h2 id="46">6. Citations</h2><p ><b >qMRLab JOSS article</b></p><p >
 	<div class="success" style="text-align:justify;">
 	<p > Karakuzu A., Boudreau M., Duval T.,Boshkovski T., Leppert I.R., Cabana J.F., Gagnon I., Beliveau P., Pike G.B., Cohen-Adad J., Stikov N. (2020), qMRLab: Quantitative MRI analysis, under one umbrella <a href="https://doi.org/10.21105/joss.02343" target="_blank">10.21105/joss.02343</a></p>
 	</div>
@@ -252,4 +302,4 @@ qsm_sb: Fast quantitative susceptibility mapping
 	<center >| <a href="https://github.com/qmrlab/pulse_sequences" target="_blank">qMRPullseq</a> | <a href="https://github.com/qmrlab/qmrflow" target="_blank">qMRFlow</a> | <a href="https://qmrlab.org/blog.html" target="_blank">Interactive Tutorials</a> | </p></center>
 	<center ><p ><a href="https://www.neuro.polymtl.ca/doku.php" target="_blank">NeuroPoly Lab</a>, Montreal, Canada</p></center>
 	<hr >
-	</p><p class="footer"><br ><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB® R2019b</a><br ></p></div>
+	</p><p class="footer"><br ><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB® R2018b</a><br ></p></div>
