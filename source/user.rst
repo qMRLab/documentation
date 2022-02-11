@@ -59,31 +59,33 @@ Configures the default behavior of `ParFitData` function.
 
 Each option is explained below.
 
-``AutosaveEnabled`` ``[on 1, off 0, default 1]``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. toggle::
+   
+   ``AutosaveEnabled`` ``[on 1, off 0, default 1]``
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Save partial results when a batch is done processing or when the ``AutosaveInterval`` is reached.
+   Save partial results when a batch is done processing or when the ``AutosaveInterval`` is reached.
 
-``AutosaveInterval`` ``[min 1, default 5]``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ``AutosaveInterval`` ``[min 1, default 5]``
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If ``AutosaveEnabled`` is set to 1, this option determines the duration (in minutes) at which the outputs will be saved. Each CPU worker times its own process.
+   If ``AutosaveEnabled`` is set to 1, this option determines the duration (in minutes) at which the outputs will be saved. Each CPU worker times its own process.
 
-``Granularity`` ``[min 2, max 5, default 3]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ``Granularity`` ``[min 2, max 5, default 3]``
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Determines how many data chunks will be created to parallelize the fitting.
+   Determines how many data chunks will be created to parallelize the fitting.
 
-``nChunks = nCores X Granularity.``
+   ``nChunks = nCores X Granularity.``
 
-``RemoveTmpOnSuccess`` [min 2, max 5, default 3]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ``RemoveTmpOnSuccess`` ``[min 2, max 5, default 3]``
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Determines whether to remove ``ParFitTempResults`` folder after the execution finished successfully. For further details about ``ParFitData``:
+   Determines whether to remove ``ParFitTempResults`` folder after the execution finished successfully. For further details about ``ParFitData``:
 
-.. code-block:: matlab
+   .. code-block:: matlab
 
-   help ParFitData
+      help ParFitData
 
 3. Unit configurations
 -------------------------------------------------------------------------------
@@ -97,58 +99,46 @@ The units are handled for 3 main cases:
 - **Output map units:** Defines the units for the quantitative maps calculated by qMRLab (e.g., ``T1 map`` in seconds or milliseconds).
 - **Input map units:** Some quantitative maps are provided as inputs to certain models. For example, a ``B1+ map`` can be provided for ``vfa_t1``, or a ``T1 map`` is expected by the ``mvf``. This category defines in which units does qMRLab expect a qMRI map as an input.
 
-Keywords for the units in qMRLab are as follows for a variety of categories (e.g., time, fraction, rate etc.) :
-
-.. admonition:: This will be shown
+.. admonition:: Keywords for defining units in qMRLab
    :class: dropdown
 
-   And sdkfjs
+   - Time
+       - ``microsecond``
+       - ``millisecond``
+       - ``second``
+       - ``minute``
+       - ``hour``
+   - Rate
+       - ``reciprocal_microsecond``
+       - ``reciprocal_millisecond``
+       - ``reciprocal_second``
+   - Fraction
+       - ``fraction_decimal`` (from 0 to 1)
+       - ``fraction_percent`` (from 0 to 100)
+   - B1
+       - ``relative_scaling_factor_decimal`` (-inf, 1=ideal, +inf)
+       - ``relative_scaling_factor_percent`` (-inf, 100=ideal, +inf)
+   - B0
+       - ``offset_factor_hertz`` (-inf, 0Hz=ideal, +inf]
+   - Susceptibility
+       - ``part_per_million``
+   - Angle
+       - ``radian`` 
+       - ``degree`` 
+   - Diffusivity
+       - ``square_meter_per_second``
+       - ``square_micrometer_per_millisecond``
+   - Arbitrary
+       - ``arbitrary`` (not scaled)
+   - Categorical
+       - ``categorical`` (not scaled)
+   - Length 
+       - ``millimeter``
+       - ``micrometer``
+   - Tensor
+       - ``tensor``
 
-.. toggle::
-   
-   - Here is my toggle-able content!
-     - ``microsecond``
-     - ``microsecond``
-     - ``microsecond``
-     - ``microsecond``
-
-- Time
-    - ``microsecond``
-    - ``millisecond``
-    - ``second``
-    - ``minute``
-    - ``hour``
-- Rate
-    - ``reciprocal_microsecond``
-    - ``reciprocal_millisecond``
-    - ``reciprocal_second``
-- Fraction
-    - ``fraction_decimal`` (from 0 to 1)
-    - ``fraction_percent`` (from 0 to 100)
-- B1
-    - ``relative_scaling_factor_decimal`` (-inf, 1=ideal, +inf)
-    - ``relative_scaling_factor_percent`` (-inf, 100=ideal, +inf)
-- B0
-    - ``offset_factor_hertz`` (-inf, 0Hz=ideal, +inf]
-- Susceptibility
-    - ``part_per_million``
-- Angle
-    - ``radian`` 
-    - ``degree`` 
-- Diffusivity
-    - ``square_meter_per_second``
-    - ``square_micrometer_per_millisecond``
-- Arbitrary
-    - ``arbitrary`` (not scaled)
-- Categorical
-    - ``categorical`` (not scaled)
-- Length 
-    - ``millimeter``
-    - ``micrometer``
-- Tensor
-    - ``tensor``
-
-.. note::
+.. warning::
     To configure units in the ``preferences.json``, the units **MUST** be set using the unit keywords above. For example, to set ``Time`` unit to ms, the correct keyword is ``millisecond``, not ``ms`` or ``milliseconds``.
 
 .. note::
