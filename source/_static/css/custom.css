@@ -76,7 +76,7 @@ h1 {
 }
 
 .content pre, code {
-  font-size: 13px!important;
+  font-size: 14px!important;
 }
 
 .content img {
@@ -101,4 +101,23 @@ button.toggle-button {
 
 .toggle-button summary {
   color: red;
+}
+
+content code.literal {
+  color: black;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+
+.wy-alert-title, .rst-content .admonition-title {
+  background: #e74c3c;
+}
+
+button.toggle-button {
+  color: white;
+}
+
+details.toggle-details summary {
+    background-color: #e74c3c;
+    color: white;
 }
