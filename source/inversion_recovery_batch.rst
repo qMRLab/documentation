@@ -130,8 +130,8 @@ inversion_recovery: Compute a T1 map using Inversion Recovery data
 	<p style="margin:0px!important;"> <b ><u >Options:</u></b> <i >Fitting preferences that are left at user's discretion.</i></p>
 	</div>
 	</p><p >For example: <tt >linear fit</tt>, <tt >exponential fit</tt>, <tt >drop first echo</tt>.</p><h2 id="8">2.b.1 Set <tt >protocol</tt> <i >the CLI way</i></h2><p >
-	<div class="warning">
-	<p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:black;margin-left:5px;"></i></strong> The units below are displayed according to the original implementation contributed to qMRLab. To learn how to manage input protocol units, please visit the documentation on <a href="#36">|/usr/preferences.json|</a>.</p>
+	<div class="info">
+	<p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:black;margin-left:5px;"></i></strong> The units below are displayed according to the original implementation contributed to qMRLab. To learn how to manage input protocol units, please visit the documentation on <a href="#user"><code >user preferences</code></a>.</p>
 	</div>
 	</p><p >If you are using Octave, or would like to serialize your operations any without <tt >GUI</tt> involvement, you can assign <tt >protocol</tt> directly in CLI:</p><pre class="codeinput">TI = [350.0000; 500.0000; 650.0000; 800.0000; 950.0000; 1100.0000; 1250.0000; 1400.0000; 1700.0000];
 	<span class="comment">% TI(ms) is a vector of [9X1]</span>
@@ -143,8 +143,8 @@ inversion_recovery: Compute a T1 map using Inversion Recovery data
 	<p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:black;margin-left:5px;"></i></strong> See the <a href="#36">generic notes</a> section below for further information. </p>
 	</div>
 	</p><h2 id="13">2.b.2 Set <tt >protocol</tt> and <tt >options</tt> <i >the GUI way</i></h2><p >
-	<div class="warning">
-	<p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:black;margin-left:5px;"></i></strong> The units below are displayed according to the original implementation contributed to qMRLab. To learn how to manage input protocol units, please visit the documentation on <a href="#36">|/usr/preferences.json|</a>.</p>
+	<div class="info">
+	<p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:black;margin-left:5px;"></i></strong> The units below are displayed according to the original implementation contributed to qMRLab. To learn how to manage input protocol units, please visit the documentation on <a href="#user"><code >user preferences</code></a>.</p>
 	</div>
 	</p><p >The following command opens a panel to set <tt >protocol</tt> and <tt >options</tt> (if <tt >GUI</tt> is available to the user):</p><pre class="language-matlab">Model = Custom_OptionsGUI(Model);
 	</pre><p ><img vspace="5" hspace="5" src="https://github.com/qMRLab/doc_images/blob/main/usr/protPanels/inversion_recovery.png?raw=true" alt=""> </p><p ><i >If available, you need to close this panel for the remaining of the script to proceed.</i></p><p >
@@ -177,8 +177,8 @@ inversion_recovery: Compute a T1 map using Inversion Recovery data
 	FitResults_old = load(<span class="string">'FitResults/FitResults.mat'</span>);
 	qMRshowOutput(FitResults_old,data,Model);
 	</pre><img vspace="5" hspace="5" src="_static/inversion_recovery_batch_01.png" alt=""> <img vspace="5" hspace="5" src="_static/inversion_recovery_batch_02.png" alt=""> <p >
-	<div class="warning">
-	<p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:black;margin-left:5px;"></i></strong> The unit of the quantitative map displayed above is set according to the original implementation contributed to qMRLab. To learn how to manage output map units, please visit the documentation on <a href="#36">|/usr/preferences.json|</a>.</p>
+	<div class="info">
+	<p style="margin:0px!important;"><strong > <i class="fa fa-info-circle" style="color:black;margin-left:5px;"></i></strong> The unit of the quantitative map displayed above is set according to the original implementation contributed to qMRLab. To learn how to manage output map units, please visit the documentation on the <a href="#user"><code >user preferences</code></a>.</p>
 	</div>
 	</p><h2 id="25">3.d. Save fit results</h2><p >Outputs can be saved as <tt >*.nii.(gz)</tt> if <tt >NIfTI</tt> inputs are available:</p><pre class="language-matlab"><span class="comment">% Generic function call to save nifti outputs</span>
 	FitResultsSave_nii(FitResults, <span class="string">'reference/nifti/file.nii.(gz)'</span>);

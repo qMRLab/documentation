@@ -24,6 +24,7 @@ Welcome to qMRLab, a software for quantitative MR image analysis. Please take a 
    introduction.rst
    methods.rst
    protocols.rst
+   user.rst
    
 
 .. toctree::
