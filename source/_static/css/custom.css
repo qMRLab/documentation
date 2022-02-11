@@ -94,3 +94,11 @@ h1 {
   border-color: #9ecaed;
   box-shadow: 0 0 10px #9ecaed;
 }
+
+button.toggle-button {
+  color: red;
+}
+
+.toggle-button summary {
+  color: red;
+}
