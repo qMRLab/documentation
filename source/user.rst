@@ -62,24 +62,17 @@ Each option is explained below.
 .. toggle::
    
    - ``AutosaveEnabled`` ``[on 1, off 0, default 1]``
-   
-
-   Save partial results when a batch is done processing or when the ``AutosaveInterval`` is reached.
+       - Save partial results when a batch is done processing or when the ``AutosaveInterval`` is reached.
 
    - ``AutosaveInterval`` ``[min 1, default 5]``
-
-   If ``AutosaveEnabled`` is set to 1, this option determines the duration (in minutes) at which the outputs will be saved. Each CPU worker times its own process.
+       - If ``AutosaveEnabled`` is set to 1, this option determines the duration (in minutes) at which the outputs will be saved. Each CPU worker times its own process.
 
    - ``Granularity`` ``[min 2, max 5, default 3]``
-   
-
-   Determines how many data chunks will be created to parallelize the fitting.
-
-   ``nChunks = nCores X Granularity.``
+       - Determines how many data chunks will be created to parallelize the fitting.
+       - ``nChunks = nCores X Granularity.``
 
    - ``RemoveTmpOnSuccess`` ``[min 2, max 5, default 3]``
-
-   Determines whether to remove ``ParFitTempResults`` folder after the execution finished successfully. For further details about ``ParFitData``:
+       - Determines whether to remove ``ParFitTempResults`` folder after the execution finished successfully. For further details about ``ParFitData``:
 
    .. code-block:: matlab
 
@@ -139,8 +132,8 @@ The units are handled for 3 main cases:
    .. warning::
         To configure units in the ``preferences.json``, the units **MUST** be set using the unit keywords above. For example, to set ``Time`` unit to ms, the correct keyword is ``millisecond``, not ``ms`` or ``milliseconds``.
 
-.. note::
-    Unit changes take effect in both MATLAB and Octave. To see the unit changes in the GUI, you need to restart qMRLab after modifying the ``preferences.json`` file.
+
+Unit changes take effect in both MATLAB and Octave. To see the unit changes in the GUI, you need to restart qMRLab after modifying the ``preferences.json`` file. The following dropdowns explain unit selections available in the ``usr/preferences.json`` file.
 
 .. admonition:: ``ForAllUnitsUseBIDS``
    :class: dropdown
@@ -166,11 +159,11 @@ The units are handled for 3 main cases:
 
     .. code-block:: json
 
-      "UnifyOutputMapUnits": {
-         "Enabled": true,
-         "Time": "second",
-         ...
-         }
+       "UnifyOutputMapUnits": {
+            "Enabled": true,
+            "Time": "second",
+            ...
+            }
 
     For example, if you set ``"Time": "millisecond",`` as shown above, all the time-relevant output maps (e.g., ``T1map``, ``T2map``) will be saved
     in milliseconds.
@@ -188,11 +181,11 @@ The units are handled for 3 main cases:
 
     .. code-block:: json
 
-      "UnifyInputProtocolUnits ": {
-         "Enabled": true,
-         "Time": "second",
-         ...
-         }
+       "UnifyInputProtocolUnits ": {
+            "Enabled": true,
+            "Time": "second",
+            ...
+            }
 
     For example, if you set ``"Time": "millisecond",`` as shown above, all the time-relevant protocols (e.g., ``EchoTime``, ``InversionTime``) will be expected
     in milliseconds.
@@ -213,12 +206,12 @@ The units are handled for 3 main cases:
 
     .. code-block:: json
 
-      "ChangeProvidedInputMapUnits": {
-         "Enabled": false,
-         "Time": "second",
-         "B1": "relative_scaling_factor_decimal",
-         ...
-         }
+       "ChangeProvidedInputMapUnits": {
+            "Enabled": false,
+            "Time": "second",
+            "B1": "relative_scaling_factor_decimal",
+            ...
+            }
 
     For example, if you set ``B1`` as shown above, qMRLab will assume that the B1+ maps you provide are normalized such that ``1`` indicates ``actual`` = ``nominal`` flip angle. Values smaller than ``1`` will
     scale down the actual Flip Angle, and vice versa. Or, a ``T1map`` that is input to a qMRLab model (e.g., `mvf`) will be expected in the unit of seconds. 
