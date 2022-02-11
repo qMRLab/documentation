@@ -142,7 +142,7 @@ The units are handled for 3 main cases:
 .. note::
     Unit changes take effect in both MATLAB and Octave. To see the unit changes in the GUI, you need to restart qMRLab after modifying the ``preferences.json`` file.
 
-.. admonition:: The ``ForAllUnitsUseBIDS`` field
+.. admonition:: ``ForAllUnitsUseBIDS``
    :class: dropdown
 
     If this setting is ``true`` then:
@@ -158,7 +158,7 @@ The units are handled for 3 main cases:
     .. warning::
         Setting this to ``true`` will override ``UnifyOutputMapUnits``, ``UnifyInputProtocolUnits`` and ``ChangeProvidedInputMapUnits``.
 
-.. admonition:: The ``UnifyOutputMapUnits`` field
+.. admonition:: ``UnifyOutputMapUnits``
    :class: dropdown
 
     If ``"Enabled": true``, then the units defined for each unit category will determine 
@@ -180,7 +180,7 @@ The units are handled for 3 main cases:
     .. note::
         Overriden by ``ForAllUnitsUseBIDS (true)`` user setting or ``setenv('ISBIDS','1')`` environment variable.
 
-.. admonition:: The ``UnifyInputProtocolUnits`` field
+.. admonition:: ``UnifyInputProtocolUnits``
    :class: dropdown
 
     If ``"Enabled": true``, then the units defined for each unit category will determine 
@@ -188,11 +188,11 @@ The units are handled for 3 main cases:
 
     .. code-block:: json
 
-    "UnifyInputProtocolUnits ": {
-            "Enabled": true,
-            "Time": "second",
-            ...
-            }
+       "UnifyInputProtocolUnits ": {
+               "Enabled": true,
+               "Time": "second",
+               ...
+               }
 
     For example, if you set ``"Time": "millisecond",`` as shown above, all the time-relevant protocols (e.g., ``EchoTime``, ``InversionTime``) will be expected
     in milliseconds.
@@ -205,7 +205,7 @@ The units are handled for 3 main cases:
     .. note::
         Overriden by ``ForAllUnitsUseBIDS (true)`` user setting or ``setenv('ISBIDS','1')`` environment variable.
 
-.. admonition:: The ``ChangeProvidedInputMapUnits`` field
+.. admonition:: ``ChangeProvidedInputMapUnits``
    :class: dropdown
 
     If ``"Enabled": true``, then the units defined for each unit category will determine 
@@ -213,12 +213,12 @@ The units are handled for 3 main cases:
 
     .. code-block:: json
 
-    "ChangeProvidedInputMapUnits": {
-        "Enabled": false,
-        "Time": "second",
-        "B1": "relative_scaling_factor_decimal",
-        ...
-        }
+       "ChangeProvidedInputMapUnits": {
+           "Enabled": false,
+           "Time": "second",
+           "B1": "relative_scaling_factor_decimal",
+           ...
+           }
 
     For example, if you set ``B1`` as shown above, qMRLab will assume that the B1+ maps you provide are normalized such that ``1`` indicates ``actual`` = ``nominal`` flip angle. Values smaller than ``1`` will
     scale down the actual Flip Angle, and vice versa. Or, a ``T1map`` that is input to a qMRLab model (e.g., `mvf`) will be expected in the unit of seconds. 

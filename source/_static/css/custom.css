@@ -95,29 +95,23 @@ h1 {
   box-shadow: 0 0 10px #9ecaed;
 }
 
-button.toggle-button {
-  color: red;
-}
-
-.toggle-button summary {
-  color: red;
-}
 
 content code.literal {
-  color: black;
-  border-radius: 5px;
-  background-color: whitesmoke;
+  color: black !important;
+  border-radius: 5px !important;
+  background-color: whitesmoke !important;
 }
 
 .wy-alert-title, .rst-content .admonition-title {
-  background: #e74c3c;
+  background: #4070a0;
 }
 
 button.toggle-button {
-  color: white;
+  background-color: #4070a0 !important;
+  color: white !important;
 }
 
 details.toggle-details summary {
-    background-color: #e74c3c;
-    color: white;
+    background-color: #4070a0 !important;
+    color: white !important;
 }
