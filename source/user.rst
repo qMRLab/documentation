@@ -100,12 +100,12 @@ The units are handled for 3 main cases:
 Keywords for the units in qMRLab are as follows for a variety of categories (e.g., time, fraction, rate etc.) :
 
 .. admonition:: This will be shown
-
-.. toggle::
    :class: dropdown
 
    And sdkfjs
 
+.. toggle::
+   
    - Here is my toggle-able content!
      - ``microsecond``
      - ``microsecond``
