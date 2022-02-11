@@ -159,11 +159,11 @@ Unit changes take effect in both MATLAB and Octave. To see the unit changes in t
 
     .. code-block:: json
 
-       "UnifyOutputMapUnits": {
-            "Enabled": true,
-            "Time": "second",
-            ...
-            }
+      "UnifyOutputMapUnits": {
+         "Enabled": true,
+         "Time": "second",
+         ...
+           }
 
     For example, if you set ``"Time": "millisecond",`` as shown above, all the time-relevant output maps (e.g., ``T1map``, ``T2map``) will be saved
     in milliseconds.
@@ -182,11 +182,11 @@ Unit changes take effect in both MATLAB and Octave. To see the unit changes in t
 
     .. code-block:: json
 
-       "UnifyInputProtocolUnits ": {
-            "Enabled": true,
-            "Time": "second",
-            ...
-            }
+      "UnifyInputProtocolUnits ": {
+         "Enabled": true,
+         "Time": "second",
+         ...
+         }
 
     For example, if you set ``"Time": "millisecond",`` as shown above, all the time-relevant protocols (e.g., ``EchoTime``, ``InversionTime``) will be expected
     in milliseconds.
@@ -207,12 +207,12 @@ Unit changes take effect in both MATLAB and Octave. To see the unit changes in t
 
     .. code-block:: json
 
-       "ChangeProvidedInputMapUnits": {
-            "Enabled": false,
-            "Time": "second",
-            "B1": "relative_scaling_factor_decimal",
-            ...
-            }
+      "ChangeProvidedInputMapUnits": {
+         "Enabled": false,
+         "Time": "second",
+         "B1": "relative_scaling_factor_decimal",
+         ...
+         }
 
     For example, if you set ``B1`` as shown above, qMRLab will assume that the B1+ maps you provide are normalized such that ``1`` indicates ``actual`` = ``nominal`` flip angle. Values smaller than ``1`` will
     scale down the actual Flip Angle, and vice versa. Or, a ``T1map`` that is input to a qMRLab model (e.g., `mvf`) will be expected in the unit of seconds. 
