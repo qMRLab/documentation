@@ -136,8 +136,8 @@ The units are handled for 3 main cases:
    - Tensor
        - ``tensor``
 
-.. warning::
-    To configure units in the ``preferences.json``, the units **MUST** be set using the unit keywords above. For example, to set ``Time`` unit to ms, the correct keyword is ``millisecond``, not ``ms`` or ``milliseconds``.
+   .. warning::
+        To configure units in the ``preferences.json``, the units **MUST** be set using the unit keywords above. For example, to set ``Time`` unit to ms, the correct keyword is ``millisecond``, not ``ms`` or ``milliseconds``.
 
 .. note::
     Unit changes take effect in both MATLAB and Octave. To see the unit changes in the GUI, you need to restart qMRLab after modifying the ``preferences.json`` file.
@@ -166,18 +166,18 @@ The units are handled for 3 main cases:
 
     .. code-block:: json
 
-        "UnifyOutputMapUnits": {
-             "Enabled": true,
-             "Time": "second",
-             ...
-             }
+      "UnifyOutputMapUnits": {
+         "Enabled": true,
+         "Time": "second",
+         ...
+         }
 
     For example, if you set ``"Time": "millisecond",`` as shown above, all the time-relevant output maps (e.g., ``T1map``, ``T2map``) will be saved
     in milliseconds.
 
     For available units and unit categories, please see the list above.
 
-    .. note::
+    .. warning::
         Overriden by ``ForAllUnitsUseBIDS (true)`` user setting or ``setenv('ISBIDS','1')`` environment variable.
 
 .. admonition:: ``UnifyInputProtocolUnits``
@@ -188,11 +188,11 @@ The units are handled for 3 main cases:
 
     .. code-block:: json
 
-       "UnifyInputProtocolUnits ": {
-               "Enabled": true,
-               "Time": "second",
-               ...
-               }
+      "UnifyInputProtocolUnits ": {
+         "Enabled": true,
+         "Time": "second",
+         ...
+         }
 
     For example, if you set ``"Time": "millisecond",`` as shown above, all the time-relevant protocols (e.g., ``EchoTime``, ``InversionTime``) will be expected
     in milliseconds.
@@ -202,30 +202,30 @@ The units are handled for 3 main cases:
 
     For available units and unit categories, please see the list above.
 
-    .. note::
+    .. warning::
         Overriden by ``ForAllUnitsUseBIDS (true)`` user setting or ``setenv('ISBIDS','1')`` environment variable.
 
 .. admonition:: ``ChangeProvidedInputMapUnits``
    :class: dropdown
-
+ 
     If ``"Enabled": true``, then the units defined for each unit category will determine 
     in which units are the input maps expected (e.g. ``B1+map`` or ``R1map``). 
 
     .. code-block:: json
 
-       "ChangeProvidedInputMapUnits": {
-           "Enabled": false,
-           "Time": "second",
-           "B1": "relative_scaling_factor_decimal",
-           ...
-           }
+      "ChangeProvidedInputMapUnits": {
+         "Enabled": false,
+         "Time": "second",
+         "B1": "relative_scaling_factor_decimal",
+         ...
+         }
 
     For example, if you set ``B1`` as shown above, qMRLab will assume that the B1+ maps you provide are normalized such that ``1`` indicates ``actual`` = ``nominal`` flip angle. Values smaller than ``1`` will
     scale down the actual Flip Angle, and vice versa. Or, a ``T1map`` that is input to a qMRLab model (e.g., `mvf`) will be expected in the unit of seconds. 
 
     For available units and unit categories, please see the list above.
 
-    .. note::
+    .. warning::
         Overriden by ``ForAllUnitsUseBIDS (true)`` user setting or ``setenv('ISBIDS','1')`` environment variable.
 
 .. note::
