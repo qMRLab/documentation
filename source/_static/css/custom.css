@@ -77,6 +77,9 @@ h1 {
 
 .content pre, code {
   font-size: 14px!important;
+  color: black !important;
+  border-radius: 5px !important;
+  background-color: whitesmoke !important;
 }
 
 .content img {
@@ -107,7 +110,6 @@ content code.literal {
 }
 
 button.toggle-button {
-  background-color: #4070a0 !important;
   color: white !important;
 }
 
